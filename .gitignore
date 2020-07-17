@@ -1,3 +1,5 @@
 DerivedData/
 
 *.xcodeproj/xcuserdata
+
+fastlane/test_output/
