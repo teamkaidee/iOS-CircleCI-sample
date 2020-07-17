@@ -1,13 +1,6 @@
-//
-//  SceneDelegate.swift
-//  SampleCI
-//
-//  Created by Wasith Theerapattrathamrong on 17/7/2563 BE.
-//  Copyright © 2563 Wasith Theerapattrathamrong. All rights reserved.
-//
-
 import UIKit
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
@@ -50,4 +43,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-
