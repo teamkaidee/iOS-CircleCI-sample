@@ -4,8 +4,7 @@
 version: 2.1
 
 jobs:
-  build:
-
+  build-and-test:
     macos:
       xcode: 11.5.0 # Specify the Xcode version to use
 
@@ -39,3 +38,14 @@ jobs:
     steps:
       - checkout
       - run: danger
+
+workflows:
+  "SwiftLint":
+    jobs:
+      - swiftlint
+  "danger":
+    jobs:
+      - danger
+  "Build then Test":
+    jobs:
+      - build-and-test
