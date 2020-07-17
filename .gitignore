@@ -2,4 +2,8 @@ DerivedData/
 
 *.xcodeproj/xcuserdata
 
+# Fastlane
 fastlane/test_output/
+
+# CocoaPods
+Pods/
