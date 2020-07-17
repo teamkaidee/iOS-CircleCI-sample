@@ -39,6 +39,9 @@ jobs:
       - checkout
       - run: danger
 
+orbs:
+  owasp: entur/owasp@0.0.10
+
 workflows:
   "SwiftLint":
     jobs:
@@ -49,3 +52,9 @@ workflows:
   "Build then Test":
     jobs:
       - build-and-test
+  "OWASP Dependency-Check":
+    jobs:
+      - owasp/commandline_owasp_dependency_check:
+          executor: java_11
+          arguments: >-
+            --scan ./ --failOnCVSS 0

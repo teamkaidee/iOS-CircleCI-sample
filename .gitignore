@@ -7,3 +7,6 @@ fastlane/test_output/
 
 # CocoaPods
 Pods/
+
+# OWASP Dependency-Check
+dependency-check-report.html
