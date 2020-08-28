@@ -1,9 +1,14 @@
 DerivedData/
 
+# Xcode
+xcuserdata/
 *.xcodeproj/xcuserdata
 
 # Fastlane
 fastlane/test_output/
+fastlane/report.xml
 
 # CocoaPods
 Pods/
+
+*.swp
