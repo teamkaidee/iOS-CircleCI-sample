@@ -1,15 +1,15 @@
 //
-//  SampleCITests.swift
-//  SampleCITests
+//  KaideeTests.swift
+//  KaideeTests
 //
 //  Created by Wasith Theerapattrathamrong on 17/7/2563 BE.
 //  Copyright © 2563 Wasith Theerapattrathamrong. All rights reserved.
 //
 
 import XCTest
-@testable import SampleCI
+@testable import Kaidee
 
-class SampleCITests: XCTestCase {
+class KaideeTests: XCTestCase {
 
   override func setUpWithError() throws {
     // Put setup code here. This method is called before the invocation of each test method in the class.

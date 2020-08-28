@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SampleCI.xcodeproj">
+      location = "group:/Users/w/iOS-CircleCI-sample/Kaidee.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
