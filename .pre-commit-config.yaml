@@ -18,3 +18,11 @@ repos:
   - id: double-quote-string-fixer
 
   - id: detect-private-key
+
+# To customize commitizen, please read:
+# https://commitizen-tools.github.io/commitizen/customization/
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: master
+  hooks:
+    - id: commitizen
+      stages: [commit-msg]
