@@ -17,5 +17,18 @@ repos:
 
   - id: double-quote-string-fixer
 
-  - id: detect-aws-credentials
   - id: detect-private-key
+
+# To customize commitizen, please read:
+# https://commitizen-tools.github.io/commitizen/customization/
+- repo: https://github.com/commitizen-tools/commitizen
+  rev: master
+  hooks:
+    - id: commitizen
+      stages: [commit-msg]
+
+- repo: https://github.com/milin/giticket
+  rev: v1.0
+  hooks:
+  - id:  giticket
+    args: ['--regex=[^/][A-Z][A-Z0-9]+-.*[0-9]', '--format=[{ticket}] {commit_msg}', '--mode=regex_match']
