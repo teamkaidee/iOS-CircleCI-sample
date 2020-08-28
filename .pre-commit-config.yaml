@@ -19,6 +19,9 @@ repos:
 
   - id: detect-private-key
 
+  - id: no-commit-to-branch
+    args: ['--pattern', '^(?!((feature|hotfix)\/[a-zA-Z0-9\-]+)$).*']
+
 # To customize commitizen, please read:
 # https://commitizen-tools.github.io/commitizen/customization/
 - repo: https://github.com/commitizen-tools/commitizen
