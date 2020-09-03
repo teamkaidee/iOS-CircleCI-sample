@@ -1,0 +1,21 @@
+version: "2"
+plugins:
+  swiftlint:
+    enabled: true
+  tailor:
+    enabled: true
+  shellcheck:
+    enabled: true
+
+exclude_patterns:
+# Frameworks
+  - "Pods/"
+  - "Frameworks/"
+  - "Carthage/"
+
+# Gnerated files
+  - "Generated/"
+
+# Build
+  - "DerivedData/"
+  - "Build/"
