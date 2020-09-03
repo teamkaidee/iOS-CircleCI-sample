@@ -26,6 +26,7 @@ jobs:
       - image: bytesguy/swiftlint:latest
     steps:
       - checkout
+      - run: swiftlint version
       - run: swiftlint lint --reporter junit | tee result.xml
       - store_artifacts:
           path: result.xml
