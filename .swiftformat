@@ -1,0 +1,10 @@
+--swiftversion 5.0
+
+--header strip
+
+--indent 2
+
+--maxwidth 120
+
+--exclude bin,Carthage,DerivedData,Generated,Pods
+
