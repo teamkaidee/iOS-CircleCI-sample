@@ -14,8 +14,8 @@
 		1661E74D24C13F6300CADA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1661E74C24C13F6300CADA53 /* Assets.xcassets */; };
 		1661E75024C13F6300CADA53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1661E74E24C13F6300CADA53 /* LaunchScreen.storyboard */; };
 		1661E75B24C13F6300CADA53 /* KaideeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1661E75A24C13F6300CADA53 /* KaideeTests.swift */; };
-		2859275BDA85C12ECBBAE453 /* Pods_Kaidee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B0C190FE25CD1573F6B6F9 /* Pods_Kaidee.framework */; };
-		A05611C4AA82EDAD6079557A /* Pods_KaideeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D3B94975104B740525CD76 /* Pods_KaideeTests.framework */; };
+		8F7CCA756CDBE7FCD4E55061 /* libPods-KaideeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DF2DF7B6E99B7DD9C962C8C /* libPods-KaideeTests.a */; };
+		ECAAB84A7DAFA0BBF887C029 /* libPods-Kaidee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F94DB05964B94FD75B65B88B /* libPods-Kaidee.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +41,11 @@
 		1661E75A24C13F6300CADA53 /* KaideeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaideeTests.swift; sourceTree = "<group>"; };
 		1661E75C24C13F6300CADA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D727DC01B472846D210006B /* Pods-KaideeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaideeTests.release.xcconfig"; path = "Target Support Files/Pods-KaideeTests/Pods-KaideeTests.release.xcconfig"; sourceTree = "<group>"; };
-		49B0C190FE25CD1573F6B6F9 /* Pods_Kaidee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Kaidee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF2DF7B6E99B7DD9C962C8C /* libPods-KaideeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KaideeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A54A34241C52C097B694CCD /* Pods-Kaidee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kaidee.release.xcconfig"; path = "Target Support Files/Pods-Kaidee/Pods-Kaidee.release.xcconfig"; sourceTree = "<group>"; };
 		B58683FBD68E6F04625104E1 /* Pods-KaideeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KaideeTests.debug.xcconfig"; path = "Target Support Files/Pods-KaideeTests/Pods-KaideeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D9D3B94975104B740525CD76 /* Pods_KaideeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KaideeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4AE686E09F14118F3FDB8BD /* Pods-Kaidee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Kaidee.debug.xcconfig"; path = "Target Support Files/Pods-Kaidee/Pods-Kaidee.debug.xcconfig"; sourceTree = "<group>"; };
+		F94DB05964B94FD75B65B88B /* libPods-Kaidee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Kaidee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2859275BDA85C12ECBBAE453 /* Pods_Kaidee.framework in Frameworks */,
+				ECAAB84A7DAFA0BBF887C029 /* libPods-Kaidee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A05611C4AA82EDAD6079557A /* Pods_KaideeTests.framework in Frameworks */,
+				8F7CCA756CDBE7FCD4E55061 /* libPods-KaideeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,8 +71,8 @@
 		148E6F5BB8E77DB75C026A65 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49B0C190FE25CD1573F6B6F9 /* Pods_Kaidee.framework */,
-				D9D3B94975104B740525CD76 /* Pods_KaideeTests.framework */,
+				F94DB05964B94FD75B65B88B /* libPods-Kaidee.a */,
+				3DF2DF7B6E99B7DD9C962C8C /* libPods-KaideeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
