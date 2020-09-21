@@ -1,16 +1,7 @@
-//
-//  KaideeTests.swift
-//  KaideeTests
-//
-//  Created by Wasith Theerapattrathamrong on 17/7/2563 BE.
-//  Copyright © 2563 Wasith Theerapattrathamrong. All rights reserved.
-//
-
-import XCTest
 @testable import Kaidee
+import XCTest
 
 class KaideeTests: XCTestCase {
-
   override func setUpWithError() throws {
     // Put setup code here. This method is called before the invocation of each test method in the class.
   }
@@ -26,9 +17,8 @@ class KaideeTests: XCTestCase {
 
   func testPerformanceExample() throws {
     // This is an example of a performance test case.
-    self.measure {
+    measure {
       // Put the code you want to measure the time of here.
     }
   }
-
 }

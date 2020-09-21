@@ -3,10 +3,21 @@
 
 version: 2.1
 
+environment: &environment
+  working_directory: ~/kaidee
+  environment:
+    LC_ALL: en_US.UTF-8
+    LANG: en_US.UTF-8
+    TERM: xterm
+
+ios-base: &ios-base
+  <<: *environment
+  macos:
+      xcode: 12.0.0 # Specify the Xcode version to use
+
 jobs:
   build-and-test:
-    macos:
-      xcode: 11.5.0 # Specify the Xcode version to use
+    <<: *ios-base
 
     steps:
       - checkout
