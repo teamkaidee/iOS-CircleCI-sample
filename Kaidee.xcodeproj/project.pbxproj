@@ -139,6 +139,7 @@
 			buildConfigurationList = 1661E75F24C13F6300CADA53 /* Build configuration list for PBXNativeTarget "Kaidee" */;
 			buildPhases = (
 				CDBAE73EA23A872978E6CB2D /* [CP] Check Pods Manifest.lock */,
+				16EC11D625185BCA000F1B7F /* Format Code and Linter */,
 				1661E73C24C13F6100CADA53 /* Sources */,
 				1661E73D24C13F6100CADA53 /* Frameworks */,
 				1661E73E24C13F6100CADA53 /* Resources */,
@@ -230,6 +231,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16EC11D625185BCA000F1B7F /* Format Code and Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Format Code and Linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${SOURCE_ROOT}/bin/format.sh\n";
+		};
 		6006AE7ECEFF337AA7A992F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
