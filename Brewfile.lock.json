@@ -23,7 +23,7 @@
         }
       },
       "dependency-check": {
-        "version": "6.0.1",
+        "version": "6.0.2",
         "bottle": false
       },
       "shellcheck": {
@@ -52,12 +52,12 @@
   "system": {
     "macos": {
       "catalina": {
-        "HOMEBREW_VERSION": "2.5.1",
+        "HOMEBREW_VERSION": "2.5.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "d3b600db126c41f1ee73c6fc4c807d15293def6d",
+        "Homebrew/homebrew-core": "f8b3cb66aa8312f5172138b6fc2214fcacd38a8e",
         "CLT": "",
-        "Xcode": "12.0",
-        "macOS": "10.15.6"
+        "Xcode": "12.0.1",
+        "macOS": "10.15.7"
       }
     }
   }
