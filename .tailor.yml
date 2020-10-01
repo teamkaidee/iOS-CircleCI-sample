@@ -1,0 +1,11 @@
+except:
+  - function-whitespace
+  - lower-camel-case
+
+exclude:
+  - Build
+  - Carthage
+  - DerivedData
+  - ExternalFrameworks
+  - Generated
+  - Pods
