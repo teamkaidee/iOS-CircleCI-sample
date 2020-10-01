@@ -47,6 +47,14 @@ jobs:
           key: v1-gems-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Notify Code Climate of a pending test report
+          command: ./cc-test-reporter before-build
       - run: bundle exec fastlane build_for_tests
       - persist_to_workspace:
           root: ~/kaidee
@@ -60,6 +68,11 @@ jobs:
       - attach_workspace:
           at: ~/kaidee
       - run: bundle exec fastlane tests_without_build # Run tests using Fastlane
+      - run:
+          name: upload test report to Code Climate
+          command: |
+            ./cc-test-reporter format-coverage -d -t cobertura ./fastlane/test_output/slather/cobertura.xml
+            ./cc-test-reporter upload-coverage
       - run:
           name: Force to fail
           command: exit 1
