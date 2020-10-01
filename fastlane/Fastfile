@@ -38,6 +38,10 @@ platform :ios do
     slather
   end
 
+  lane :unit_tests do
+    scan
+  end
+
   lane :release do
     bump_build_number
   end

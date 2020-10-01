@@ -26,6 +26,11 @@ fastlane ios build_for_tests
 fastlane ios tests_without_build
 ```
 
+### ios unit_tests
+```
+fastlane ios unit_tests
+```
+
 ### ios release
 ```
 fastlane ios release
