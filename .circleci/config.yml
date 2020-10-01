@@ -6,6 +6,7 @@ version: 2.1
 environment: &environment
   working_directory: ~/kaidee
   environment:
+    BUNDLE_PATH: vendor/bundle
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     TERM: xterm
@@ -16,21 +17,70 @@ ios-base: &ios-base
       xcode: 12.0.0 # Specify the Xcode version to use
 
 jobs:
-  build-and-test:
+  build-for-tests:
     <<: *ios-base
 
     steps:
       - checkout
-      - run: pod install # Install CocoaPods dependencies
-      - run: fastlane scan # Run tests using Fastlane
+      - restore_cache:
+          name: Restore Bundler
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install Bundler
+          command: bundle check || bundle install
+          environment:
+            BUNDLE_JOBS: 4
+            BUNDLE_RETRY: 3
+      - save_cache:
+          name: Cache Bundler
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - restore_cache:
+          name: Restore Cocoapods
+          keys:
+            - v1-pods-{{ checksum "Podfile.lock" }}
+      - run: bundle exec pod check || bundle exec pod install
+      - save_cache:
+          name: Save Cocoapods
+          key: v1-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+      - run:
+          name: Notify Code Climate of a pending test report
+          command: ./cc-test-reporter before-build
+      - run: bundle exec fastlane build_for_tests
+      - persist_to_workspace:
+          root: ~/kaidee
+          paths:
+            - ./
+
+  tests-from-build:
+    <<: *ios-base
+
+    steps:
+      - attach_workspace:
+          at: ~/kaidee
+      - run:
+          name: Pre-load simulator
+          command: xcrun instruments -w "iPhone 8 (14.0) [" || true
+      - run: bundle exec fastlane tests_without_build # Run tests using Fastlane
+      - run:
+          name: upload test report to Code Climate
+          command: |
+            ./cc-test-reporter format-coverage -d -t cobertura ./fastlane/test_output/slather/cobertura.xml
+            ./cc-test-reporter upload-coverage
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
       - store_test_results:
-          path: test_output
-      - store_artifacts:
-          path: test_output
-          destination: scan-output
+          path: fastlane/test_output
 
   swiftlint:
     docker:
@@ -58,6 +108,9 @@ workflows:
   "danger":
     jobs:
       - danger
-  "Build then Test":
+  "Build and Tests":
     jobs:
-      - build-and-test
+      - build-for-tests
+      - tests-from-build:
+          requires:
+            - build-for-tests

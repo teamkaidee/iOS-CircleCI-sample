@@ -17,4 +17,37 @@ default_platform(:ios)
 
 platform :ios do
 
+  before_all do
+    # If you got a slow machine this will prevent you from timeout
+    ENV["FASTLANE_XCODE_LIST_TIMEOUT"] ||= "120"
+    ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] ||= "120"
+  end
+
+  lane :build_for_tests do
+    scan(
+      build_for_testing: true
+    )
+  end
+
+  lane :tests_without_build do
+    scan(
+      clean: false,
+      test_without_building: true
+    )
+
+    slather
+  end
+
+  lane :unit_tests do
+    scan
+  end
+
+  lane :release do
+    bump_build_number
+  end
+
+  private_lane :bump_build_number do
+    build_number = Date.today.to_time.to_i / 100
+    increment_build_number(build_number: build_number)
+  end
 end
