@@ -102,12 +102,12 @@ jobs:
       - run: danger
 
 workflows:
-  # "SwiftLint":
-  #   jobs:
-  #     - swiftlint
-  # "danger":
-  #   jobs:
-  #     - danger
+  "SwiftLint":
+    jobs:
+      - swiftlint
+  "danger":
+    jobs:
+      - danger
   "Build and Tests":
     jobs:
       - build-for-tests
