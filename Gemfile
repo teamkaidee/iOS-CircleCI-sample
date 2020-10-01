@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
-gem 'fastlane'
-gem 'cocoapods'
 gem 'bundle-audit'
+gem 'cocoapods'
+gem 'fastlane'
+gem 'slather'
