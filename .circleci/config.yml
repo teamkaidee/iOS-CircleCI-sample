@@ -67,6 +67,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/kaidee
+      - run:
+          name: Pre-load simulator
+          command: xcrun instruments -w "iPhone 8 (14.0) [" || true
       - run: bundle exec fastlane tests_without_build # Run tests using Fastlane
       - run:
           name: upload test report to Code Climate
