@@ -6,6 +6,7 @@ version: 2.1
 environment: &environment
   working_directory: ~/kaidee
   environment:
+    BUNDLE_PATH: vendor/bundle
     LC_ALL: en_US.UTF-8
     LANG: en_US.UTF-8
     TERM: xterm
@@ -16,13 +17,52 @@ ios-base: &ios-base
       xcode: 12.0.0 # Specify the Xcode version to use
 
 jobs:
-  build-and-test:
+  build-for-tests:
     <<: *ios-base
 
     steps:
       - checkout
-      - run: pod install # Install CocoaPods dependencies
-      - run: fastlane scan # Run tests using Fastlane
+      - restore_cache:
+          name: Restore Cocoapods
+          keys:
+            - v1-pods-{{ checksum "Podfile.lock" }}
+      - run: pod check || pod install
+      - save_cache:
+          name: Save Cocoapods
+          key: v1-pods-{{ checksum "Podfile.lock" }}
+          paths:
+            - Pods
+      - restore_cache:
+          name: Restore Bundler
+          keys:
+            - v1-gems-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Install Bundler
+          command: bundle check || bundle install
+          environment:
+            BUNDLE_JOBS: 4
+            BUNDLE_RETRY: 3
+      - save_cache:
+          name: Cache Bundler
+          key: v1-gems-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run: bundle exec fastlane build_for_tests
+      - persist_to_workspace:
+          root: ~/kaidee
+          paths:
+            - ./
+
+  tests-from-build:
+    <<: *ios-base
+
+    steps:
+      - attach_workspace:
+          at: ~/kaidee
+      - run: bundle exec fastlane tests_without_build # Run tests using Fastlane
+      - run:
+          name: Force to fail
+          command: exit 1
 
       # Collect XML test results data to show in the UI, and save the same XML
       # files under test-results folder in the Artifacts tab
@@ -52,12 +92,15 @@ jobs:
       - run: danger
 
 workflows:
-  "SwiftLint":
+  # "SwiftLint":
+  #   jobs:
+  #     - swiftlint
+  # "danger":
+  #   jobs:
+  #     - danger
+  "Build and Tests":
     jobs:
-      - swiftlint
-  "danger":
-    jobs:
-      - danger
-  "Build then Test":
-    jobs:
-      - build-and-test
+      - build-for-tests
+      - tests-from-build:
+          requires:
+            - build-for-tests

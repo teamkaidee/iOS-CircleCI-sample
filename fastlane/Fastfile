@@ -23,6 +23,25 @@ platform :ios do
     ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] ||= "120"
   end
 
+  lane :build_for_tests do
+    scan(
+      build_for_testing: true
+    )
+  end
+
+  lane :tests_without_build do
+    scan(
+      clean: false,
+      test_without_building: true
+    )
+
+    slather(
+      proj: "Kaidee.xcodeproj",
+      scheme: "Kaidee",
+      cobertura_xml: true
+    )
+  end
+
   lane :release do
     bump_build_number
   end
