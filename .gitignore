@@ -12,3 +12,7 @@ fastlane/report.xml
 Pods/
 
 *.swp
+
+# SwiftLint
+
+result.xml
