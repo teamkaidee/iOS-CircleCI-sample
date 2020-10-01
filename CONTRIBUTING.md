@@ -11,3 +11,7 @@ Please use [pre-commit](https://pre-commit.com/) before commit anything.
 1. Then use issue number to create a branch name for example `feature/OSS-<number>` e.g. feature/OSS-9 so github can automatically create a link if github found a word that match `OSS-<number>` pattern.
 1. Make sure [./bin/format.sh](bin/format.sh) was run before commit anything. (This should be also run with pre-commit)
 1. Feel free to open a Pull Request.
+
+## TODO
+
+To left with TODO: or FIXME: please follow `OSS-<issue number>`
