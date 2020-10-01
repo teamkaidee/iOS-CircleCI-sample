@@ -35,11 +35,7 @@ platform :ios do
       test_without_building: true
     )
 
-    slather(
-      proj: "Kaidee.xcodeproj",
-      scheme: "Kaidee",
-      cobertura_xml: true
-    )
+    slather
   end
 
   lane :release do

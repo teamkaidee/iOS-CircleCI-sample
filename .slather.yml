@@ -1,0 +1,6 @@
+coverage_service: cobertura_xml
+workspace: Kaidee.xcworkspace
+scheme: Kaidee
+ignore:
+  - Pods/*
+  - Carthage/*
