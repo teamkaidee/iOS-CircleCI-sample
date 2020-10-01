@@ -3,8 +3,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_: UIApplication,
-                   didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-  {
+                   didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     true
   }
 
@@ -18,7 +17,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   ) -> UISceneConfiguration {
     UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
   }
-
-  @available(iOS 13.0, *)
-  func application(_: UIApplication, didDiscardSceneSessions _: Set<UISceneSession>) {}
 }
