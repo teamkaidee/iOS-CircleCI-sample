@@ -4,7 +4,9 @@ repos:
   hooks:
   - id: check-added-large-files
   - id: trailing-whitespace
+    exclude: Generated
   - id: end-of-file-fixer
+    exclude: Generated
 
   - id: check-case-conflict
   - id: check-json
