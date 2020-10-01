@@ -3,6 +3,7 @@ xcodeproj: Kaidee.xcodeproj
 workspace: Kaidee.xcworkspace
 scheme: Kaidee
 configuration: Debug
+build_directory: DerivedData
 output_directory: fastlane/test_output/slather
 ignore:
   - Pods/*
