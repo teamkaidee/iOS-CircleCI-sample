@@ -1,6 +1,8 @@
 coverage_service: cobertura_xml
+xcodeproj: Kaidee.xcodeproj
 workspace: Kaidee.xcworkspace
 scheme: Kaidee
+output_directory: fastlane/test_output/slather
 ignore:
   - Pods/*
   - Carthage/*
